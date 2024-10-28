@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using StarterAssets;
+using UnityEngine;
 
 public class Player :MonoBehaviour
 {
-    public PlayerController controller;
+    public ThirdPersonController controller;
     private void Awake()
     {
         CharacterManager.Instance.Player = this; 
-        controller = GetComponent<PlayerController>();
+        controller = GetComponent<ThirdPersonController>();
     }
 }
