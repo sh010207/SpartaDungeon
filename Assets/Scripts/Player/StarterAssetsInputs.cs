@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -19,6 +20,9 @@ namespace StarterAssets
 		[Header("Mouse Cursor Settings")]
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
+
+		[Header("Inventory")]
+		public Action inventory;
 
 #if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
@@ -42,6 +46,12 @@ namespace StarterAssets
 		public void OnSprint(InputValue value)
 		{
 			SprintInput(value.isPressed);
+		}
+
+		public void OnInventory()
+		{
+			inventory?.Invoke();
+			ToggleCursor();
 		}
 #endif
 
@@ -74,6 +84,15 @@ namespace StarterAssets
 		private void SetCursorState(bool newState)
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+		}
+
+
+
+		private void ToggleCursor()
+		{
+			bool toggle = Cursor.lockState == CursorLockMode.Locked;
+			Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
+			cursorLocked = !toggle;
 		}
 	}
 	
