@@ -11,7 +11,9 @@ public enum ItemType
 
 public enum ConsumableType
 {
-    Health
+    Health,
+    Stamina,
+    Speed
 }
 
 [System.Serializable]

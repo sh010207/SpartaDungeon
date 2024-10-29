@@ -197,6 +197,12 @@ public class InvenCanvas : MonoBehaviour
                     case ConsumableType.Health:
                         condition.Heal(selectedItem.consumables[i].value);
                         break;
+                    case ConsumableType.Stamina:
+                        condition.PlusStamina(selectedItem.consumables[i].value);
+                        break;
+                    case ConsumableType.Speed:
+                        condition.PlusSpeed(selectedItem.consumables[i].value, 2f);
+                        break;
                 }
             }
             RemoveSelectedItem();
@@ -216,14 +222,10 @@ public class InvenCanvas : MonoBehaviour
         if (slots[selectedItemIndex].quatity <= 0 )
         {
             selectedItem = null;
+            slots[selectedItemIndex].item = null;
             selectedItemIndex = -1;
             ClearSelectedItemWindow();
         }
         UpdateUI();
-    }
-
-    public bool HasItem(ItemData item, int quantity)
-    {
-        return false;
     }
 }

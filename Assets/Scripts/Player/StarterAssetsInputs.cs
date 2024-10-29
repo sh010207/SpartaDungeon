@@ -45,10 +45,11 @@ namespace StarterAssets
 
 		public void OnSprint(InputValue value)
 		{
-			SprintInput(value.isPressed);
-		}
+            SprintInput(value.isPressed);
+        }
 
-		public void OnInventory()
+
+        public void OnInventory()
 		{
 			inventory?.Invoke();
 			ToggleCursor();
