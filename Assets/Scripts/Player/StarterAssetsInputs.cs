@@ -24,6 +24,9 @@ namespace StarterAssets
 		[Header("Inventory")]
 		public Action inventory;
 
+		[Header("Conversion")]
+		public bool conversion;
+
 #if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
 		{
@@ -54,10 +57,25 @@ namespace StarterAssets
 			inventory?.Invoke();
 			ToggleCursor();
 		}
+
+		public void OnConversion()
+		{
+			if (!conversion)
+			{
+				conversion = true;
+				CharacterManager.Instance.Player.camController.FirstPersonView();
+			}
+			else if (conversion)
+			{
+				conversion = false;
+				CharacterManager.Instance.Player.camController.ThirdPersonView();
+			}
+		}
+
 #endif
 
 
-		public void MoveInput(Vector2 newMoveDirection)
+        public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
 		} 
@@ -77,7 +95,7 @@ namespace StarterAssets
 			sprint = newSprintState;
 		}
 
-		private void OnApplicationFocus(bool hasFocus)
+        private void OnApplicationFocus(bool hasFocus)
 		{
 			SetCursorState(cursorLocked);
 		}

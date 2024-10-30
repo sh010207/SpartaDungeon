@@ -388,5 +388,13 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
+
+        private void OnControllerColliderHit(ControllerColliderHit hit)
+        {
+            if(hit.gameObject.tag == "JumpPad")
+            {
+                _verticalVelocity += 100f;
+            }
+        }
     }
 }

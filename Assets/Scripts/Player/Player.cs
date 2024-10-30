@@ -7,7 +7,7 @@ public class Player :MonoBehaviour
     public StarterAssetsInputs controller;
     public PlayerCondition condition;
     public ThirdPersonController personController;
-    public Rigidbody _rb;
+    public CamController camController;
 
     public ItemData itemData;
     public Action addItem;
@@ -20,6 +20,5 @@ public class Player :MonoBehaviour
         controller = GetComponent<StarterAssetsInputs>();
         condition = GetComponent<PlayerCondition>();
         personController = GetComponent<ThirdPersonController>();
-        _rb = GetComponent<Rigidbody>();
     }
 }
