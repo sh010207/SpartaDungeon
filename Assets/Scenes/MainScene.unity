@@ -348516,6 +348516,7 @@ MonoBehaviour:
   BottomClamp: -10
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  jumpPower: 10
 --- !u!114 &8073086773901478970
 MonoBehaviour:
   m_ObjectHideFlags: 0

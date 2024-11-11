@@ -87,6 +87,9 @@ namespace StarterAssets
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
 
+        [Header("JumpPower")]
+        public float jumpPower;
+
         // timeout deltatime
         private float _jumpTimeoutDelta;
         private float _fallTimeoutDelta;
@@ -393,7 +396,7 @@ namespace StarterAssets
         {
             if(hit.gameObject.tag == "JumpPad")
             {
-                _verticalVelocity += 100f;
+                _verticalVelocity += jumpPower;
             }
         }
     }
